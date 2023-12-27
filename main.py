@@ -40,10 +40,9 @@ def make_order(products_store):
         print('When you want to finish the order, enter empty text.')
         product_choice = input('Which product # do you want? ')
         product_amount = input('What amount do you want? ')
-        if product_choice == "" and product_amount == "":
+        if product_choice == "":
             order_is_open = False
-        elif (int(product_choice) - 1 in range(len(existent_products))) and (
-                0 < int(product_amount) <= existent_products[int(product_choice) - 1].quantity):
+        elif int(product_choice) - 1 in range(len(existent_products)):
             product_index = int(product_choice) - 1
             order_list.append((existent_products[product_index], int(product_amount)))
         else:

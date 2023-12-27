@@ -24,6 +24,9 @@ class Store:
     def order(self, shopping_list):
         total_price = 0
         for item in shopping_list:
+            if item[1] > item[0].quantity:
+                raise Exception("Order quantity is larger than available.")
             total_price += (item[0].price * item[1])
-            item[0].quantity -= item[1]
+            current_quantity = item[0].quantity
+            item[0].set_quantity(current_quantity - item[1])
         return total_price

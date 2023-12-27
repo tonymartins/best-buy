@@ -5,6 +5,8 @@ class Product:
             self.name = name
             self.price = price
             self.quantity = quantity
+            if self.quantity == 0:
+                self.deactivate()
         else:
             raise Exception("Something went wrong.\nTry Again.")
 
